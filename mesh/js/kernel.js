@@ -29,6 +29,9 @@ define(["require", "exports"], function (require, exports) {
                 var deno = -2.0 * radius * radius;
                 var nume = radius / (2.0 * Math.sqrt(2.0 * Math.PI));
                 var kernelSize = this.blurSize * 2 + 1;
+				console.log(this.blurSize)
+				console.log(deno)
+				console.log(nume)
                 this.kernel = new Float32Array(kernelSize);
                 for (var i = 0; i < kernelSize; i++) {
                     var d0 = i - this.blurSize;

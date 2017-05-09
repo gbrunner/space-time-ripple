@@ -11,6 +11,7 @@ require({
     "dojo/dom-style",
     "dojo/_base/lang",
     "dojo/on",
+	"esri/layers/TileLayer",
     "esri/Map",
     "esri/Camera",
     "esri/Color",
@@ -31,6 +32,7 @@ require({
              domStyle,
              lang,
              on,
+			 TileLayer,
              Map,
              Camera,
              Color,
@@ -89,7 +91,7 @@ require({
          */
         render: function (context) {
             const gl = context.gl;
-
+			//gl.lineWidth(5);
             gl.useProgram(this.program);
 
             gl.enable(gl.DEPTH_TEST);
@@ -211,15 +213,31 @@ require({
             gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(appMesh.indices), gl.STATIC_DRAW);
         }
     });
-
+	
+	var basketballCourtMapServiceUrl =
+		'//tiles.arcgis.com/tiles/g2TonOxuRkIqSOFx/arcgis/rest/services/Dark_Basketball_Court/MapServer';
+		//'//tiles.arcgis.com/tiles/g2TonOxuRkIqSOFx/arcgis/rest/services/White_Basketball_Court/MapServer';
+		
+	
+	var tileLayer = new TileLayer({
+		url: basketballCourtMapServiceUrl
+	});
+	
     var map = new Map({
-        basemap: 'dark-gray'
+        //basemap: 'dark-gray'
+		layers: [tileLayer]
     });
 
     var view = new SceneView({
         container: 'panelView',
         map: map,
-        extent: new Extent({xmin: appMesh.xmin, ymin: appMesh.ymin, xmax: appMesh.xmax, ymax: appMesh.ymax})
+		viewingMode: 'local',
+        extent: new Extent({xmin: appMesh.xmin, ymin: appMesh.ymin, xmax: appMesh.xmax, ymax: appMesh.ymax}),
+		clippingArea: new Extent({xmin: -0.00225, ymin:  -0.00048, xmax: 0.00225, ymax: 0.00798}),
+		environment: {
+			atmosphere: null,
+			starsEnabled: false
+		}
     });
     view.then(function () {
         updateUI();
@@ -228,10 +246,10 @@ require({
     });
 
     var _dtIndex = 0;
-    var _mode = "mesh";
-    var _origColor = "#0000ff";
-    var _destColor = "#ff0000";
-    var _radius = 2;
+    var _mode = "surface";
+    var _origColor = "#007DC3";//"#0000ff";
+    var _destColor = "#F05133";//"#ff0000";
+    var _radius = 1;
     var _meshRend;
     var _heatmapCalc;
 
@@ -273,10 +291,10 @@ require({
         }, "endColor").startup();
 
         new HorizontalSlider({
-            value: 2,
+            value: 1,
             minimum: 1,
-            maximum: 5,
-            discreteValues: 10,
+            maximum: 2,
+            discreteValues: 100,
             intermediateChanges: true,
             showButtons: false,
             style: "width:90%;",
