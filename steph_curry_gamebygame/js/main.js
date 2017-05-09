@@ -246,10 +246,10 @@ require({
     });
 
     var _dtIndex = 0;
-    var _mode = "mesh";
-    var _origColor = "#007DC3";//"#0000ff";
-    var _destColor = "#F05133";//"#ff0000";
-    var _radius = 1.25;
+    var _mode = "surface";
+    var _origColor = "#006BB6";//"#0000ff";
+    var _destColor = "#FDB927";//"#ff0000";
+    var _radius = 2;
     var _meshRend;
     var _heatmapCalc;
 
@@ -291,9 +291,9 @@ require({
         }, "endColor").startup();
 
         new HorizontalSlider({
-            value: 1.25,
+            value: 2,
             minimum: 1,
-            maximum: 2,
+            maximum: 5,
             discreteValues: 100,
             intermediateChanges: true,
             showButtons: false,
