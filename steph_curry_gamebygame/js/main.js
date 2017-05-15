@@ -246,7 +246,7 @@ require({
     });
 
     var _dtIndex = 0;
-    var _mode = "surface";
+    var _mode = "mesh";
     var _origColor = "#0000ff";//"#007DC3";//"#0000ff";
     var _destColor = "#ffff00";//"#F05133";//"#ff0000";
     //var _origColor = "#006BB6";//"#0000ff";
