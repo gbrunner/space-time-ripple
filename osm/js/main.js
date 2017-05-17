@@ -214,24 +214,24 @@ require({
         }
     });
 	
-	var basketballCourtMapServiceUrl =
-		'//tiles.arcgis.com/tiles/g2TonOxuRkIqSOFx/arcgis/rest/services/Dark_Basketball_Court/MapServer';
+	//var basketballCourtMapServiceUrl =
+	//	'//tiles.arcgis.com/tiles/g2TonOxuRkIqSOFx/arcgis/rest/services/Dark_Basketball_Court/MapServer';
 		//'//tiles.arcgis.com/tiles/g2TonOxuRkIqSOFx/arcgis/rest/services/White_Basketball_Court/MapServer';
 		
 	
-	var tileLayer = new TileLayer({
-		url: basketballCourtMapServiceUrl
-	});
+	//var tileLayer = new TileLayer({
+	//	url: basketballCourtMapServiceUrl
+	//});
 	
     var map = new Map({
-        //basemap: 'dark-gray'
-		layers: [tileLayer]
+        basemap: 'dark-gray'
+		//layers: [tileLayer]
     });
 
     var view = new SceneView({
         container: 'panelView',
         map: map,
-		viewingMode: 'local',
+		viewingMode: 'global',
         extent: new Extent({xmin: appMesh.xmin, ymin: appMesh.ymin, xmax: appMesh.xmax, ymax: appMesh.ymax}),
 		//clippingArea: new Extent({xmin: -0.00225, ymin:  -0.00048, xmax: 0.00225, ymax: 0.00798}),
 		environment: {
