@@ -231,9 +231,8 @@ require({
     var view = new SceneView({
         container: 'panelView',
         map: map,
-		viewingMode: 'global',
+		viewingMode: 'local',
         extent: new Extent({xmin: appMesh.xmin, ymin: appMesh.ymin, xmax: appMesh.xmax, ymax: appMesh.ymax}),
-		//clippingArea: new Extent({xmin: -0.00225, ymin:  -0.00048, xmax: 0.00225, ymax: 0.00798}),
 		environment: {
 			atmosphere: null,
 			starsEnabled: false
