@@ -317,7 +317,7 @@ require({
         }
         _meshRend.arrColorOrig = sRGB;
         _meshRend.arrColorDest = eRGB;
-        _meshRend.arrMult = 1000 * zArr;
+        _meshRend.arrMult = 50 * zArr;
         _meshRend.vertices = vertices;
     }
 
