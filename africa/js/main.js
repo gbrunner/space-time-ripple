@@ -231,7 +231,7 @@ require({
     var view = new SceneView({
         container: 'panelView',
         map: map,
-		viewingMode: 'local',
+		viewingMode: 'global',
         extent: new Extent({xmin: appMesh.xmin, ymin: appMesh.ymin, xmax: appMesh.xmax, ymax: appMesh.ymax}),
 		environment: {
 			atmosphere: null,
@@ -317,7 +317,7 @@ require({
         }
         _meshRend.arrColorOrig = sRGB;
         _meshRend.arrColorDest = eRGB;
-        _meshRend.arrMult = 10 * zArr;
+        _meshRend.arrMult = zArr;
         _meshRend.vertices = vertices;
     }
 
