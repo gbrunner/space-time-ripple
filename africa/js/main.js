@@ -231,7 +231,7 @@ require({
     var view = new SceneView({
         container: 'panelView',
         map: map,
-		viewingMode: 'global',
+		viewingMode: 'local',
         extent: new Extent({xmin: appMesh.xmin, ymin: appMesh.ymin, xmax: appMesh.xmax, ymax: appMesh.ymax}),
 		environment: {
 			atmosphere: null,
@@ -248,7 +248,7 @@ require({
     var _mode = "mesh";
     var _origColor = "#007DC3";//"#0000ff";
     var _destColor = "#F05133";//"#ff0000";
-    var _radius = 1.25;
+    var _radius = 2;//1.25;
     var _meshRend;
     var _heatmapCalc;
 
