@@ -312,12 +312,12 @@ require({
         const vertices = appMesh.vertices.slice(0);
         var z = 2;
         for (var i = 0; i < appMesh.length; i++) {
-            vertices[z] = 25 + 2000 * 100000*zArr[i];
+            vertices[z] = 25 + 2000 * zArr[i];
             z += 3;
         }
         _meshRend.arrColorOrig = sRGB;
         _meshRend.arrColorDest = eRGB;
-        _meshRend.arrMult = zArr;
+        _meshRend.arrMult = 100000 * zArr;
         _meshRend.vertices = vertices;
     }
 
